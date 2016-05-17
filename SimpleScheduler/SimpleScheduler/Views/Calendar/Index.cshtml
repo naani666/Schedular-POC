@@ -1,0 +1,26 @@
+﻿@using System.Data.SqlClient
+@using DHTMLX.Scheduler
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DHXScheduler initialization sample</title>
+    <style>
+        body
+        {
+            background-color:#eee;
+        }
+    </style>
+</head>
+<body>
+<div style="height: 700px; width: 900px; margin: 0 auto">
+
+    @Html.DropDownList("ddlStyle", new SelectList(Enum.GetValues(typeof(DHXScheduler.Skins))), new { onchange = "document.location.href = window.location.pathname+'?id=' + this.options[this.selectedIndex].value;" })
+
+    @Html.Raw(Model.Render())
+</div>
+</body>
+</html>
